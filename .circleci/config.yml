@@ -60,6 +60,7 @@ workflows:
           requires:
             - test
           filters:
-            ignore:
-              - master
-              - sequential_workflow
+            branches:
+              ignore:
+                - master
+                - sequential_workflow
