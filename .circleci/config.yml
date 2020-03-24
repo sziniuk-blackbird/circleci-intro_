@@ -43,13 +43,13 @@ workflows:
     jobs:
       - build-frontend
       - build-backend
-      - test-frontend
+      - test-frontend:
           requires:
             - build-frontend
-      - test-backend
+      - test-backend:
           requires:
             - build-backend
-      - integration-tests
+      - integration-tests:
           requires:
             - build-frontend
             - build-backend
