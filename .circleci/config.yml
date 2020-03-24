@@ -70,8 +70,7 @@ workflows:
       - perf-testing
     triggers:
       - schedule:
-          # every 5 mins
-          cron: "5 * * * *"
+          cron: "5 14 * * *"
           filters:
             branches:
               only:
