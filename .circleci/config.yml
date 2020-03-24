@@ -30,6 +30,15 @@ jobs:
       - attach_workspace:
           at: ~/repo/workspace
       - run: ls ~/repo/workspace/compiled_output.txt
+  test-environment:
+    docker:
+      - image: circleci/node:7.10
+    working_directory: ~/repo
+    steps:
+      - run: echo test-environment step
+      - attach_workspace:
+          at: ~/repo/workspace
+      - run: ls ~/repo/workspace/compiled_output.txt
 
 workflows:
   version: 2
@@ -47,3 +56,10 @@ workflows:
               only:
                 - master
                 - sequential_workflow
+      - test-environment:
+          requires:
+            - test
+          filters:
+            ignore:
+              - master
+              - sequential_workflow
