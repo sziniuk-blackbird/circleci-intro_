@@ -64,10 +64,11 @@ workflows:
   perf-tests:
     jobs:
       - perf-testing:
-          - schedule:
-              # every 5 mins
-              cron: "5 * * * *"
-              filters:
-                branches:
-                  only:
-                    - master
+    triggers:
+      - schedule:
+          # every 5 mins
+          cron: "5 * * * *"
+          filters:
+            branches:
+              only:
+                - master
