@@ -29,6 +29,13 @@ jobs:
     steps:
       - run: echo publish-package step
 
+  perf-testing:
+    docker:
+      - image: circleci/node:7.10
+    working_directory: ~/repo
+    steps:
+      - run: echo perf-testing step
+
 workflows:
   version: 2
   build-and-test:
@@ -54,3 +61,13 @@ workflows:
             branches:
               ignore:
                 - /.*/
+  perf-tests:
+    jobs:
+      - perf-testing:
+          - schedule:
+              # every 5 mins
+              cron: "5 * * * *"
+              filters:
+                branches:
+                  only:
+                    - master
