@@ -63,7 +63,7 @@ workflows:
                 - /.*/
   perf-tests:
     jobs:
-      - perf-testing:
+      - perf-testing
     triggers:
       - schedule:
           # every 5 mins
