@@ -65,13 +65,13 @@ workflows:
             branches:
               ignore:
                 - /.*/
-  perf-tests:
-    jobs:
-      - perf-testing
-    triggers:
-      - schedule:
-          cron: "5 14 * * *"
-          filters:
-            branches:
-              only:
-                - master
+#  perf-tests:
+#    jobs:
+#      - perf-testing
+#    triggers:
+#      - schedule:
+#          cron: "5 14 * * *"
+#          filters:
+#            branches:
+#              only:
+#                - master
