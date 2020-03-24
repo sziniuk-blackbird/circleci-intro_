@@ -44,9 +44,13 @@ workflows:
       - test:
           requires:
             - build
-      - deploy:
+      - hold:
+          type: approval
           requires:
             - test
+      - deploy:
+          requires:
+            - hold
           filters:
             branches:
               only:
